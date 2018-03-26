@@ -2,113 +2,115 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/c4fb2324ce.js"></script>
     </head>
 
     <body>
-        <div class="container-fluid">
-            <div class="row">
+        <div class="w3-container">
+            <header class="w3-row">
                 <h3>
-                    A Simple SVG test
+                    A Simple domino with SVG
                 </h3>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-primary" onclick="rotateBack()">
-                            <i class="fa fa-undo" aria-hidden="false"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary" onclick="toggleDominoTilesSelector()">New Domino</button>
-                        <button type="button" class="btn btn-primary" onclick="rotateForward()">
-                            <i class="fa fa-repeat" aria-hidden="false"></i>
-                        </button>
-                    </div>
+                <div class="w3-panel w3-leftbar w3-pale-green w3-padding-16">
+                    <small>Rotate, scale or click the "New Domino" button to see the effect</small>
                 </div>
-            </div>
-            <div class="row d-flex align-items-center">
-                <div class="col-sm-3">
-                    <template id="tileSelectorItem">
-                        <svg width="50" height="50">
-                            <use xlink:href="#tile1"/>
-                        </svg>
-                    </template>
+            </header>
+            <div class="w3-row">
+                <div class="w3-third">
+                    <div class="w3-row w3-center w3-padding-24">
+                        <template id="tileSelectorItem">
+                            <svg width="50" height="50">
+                                <use xlink:href="#tile1"/>
+                            </svg>
+                        </template>
 
-                    <svg width="200" height="200">
+                        <svg class="w3-card" width="200" height="200">
                         <symbol id="tile1">
                             <rect width="50" height="50" fill="#fff" stroke="#ABB7B7"/>
-                            <circle cx="25" cy="25" r="5" fill="#4ECDC4"/>
+                            <circle cx="25" cy="25" r="5" fill="#26A65B"/>
                         </symbol>
 
                         <symbol id="tile2">
                             <rect width="50" height="50" fill="#fff" stroke="#ABB7B7"/>
-                            <circle cx="10" cy="40" r="5" fill="#4ECDC4"/>
-                            <circle cx="40" cy="10" r="5" fill="#4ECDC4"/>
+                            <circle cx="10" cy="40" r="5" fill="#26A65B"/>
+                            <circle cx="40" cy="10" r="5" fill="#26A65B"/>
                         </symbol>
 
                         <symbol id="tile3">
                             <rect width="50" height="50" fill="#fff" stroke="#ABB7B7"/>
-                            <circle cx="10" cy="40" r="5" fill="#4ECDC4"/>
-                            <circle cx="25" cy="25" r="5" fill="#4ECDC4"/>
-                            <circle cx="40" cy="10" r="5" fill="#4ECDC4"/>
+                            <circle cx="10" cy="40" r="5" fill="#26A65B"/>
+                            <circle cx="25" cy="25" r="5" fill="#26A65B"/>
+                            <circle cx="40" cy="10" r="5" fill="#26A65B"/>
                         </symbol>
 
                         <symbol id="tile4">
                             <rect width="50" height="50" fill="#fff" stroke="#ABB7B7"/>
-                            <circle cx="10" cy="10" r="5" fill="#4ECDC4"/>
-                            <circle cx="10" cy="40" r="5" fill="#4ECDC4"/>
-                            <circle cx="40" cy="10" r="5" fill="#4ECDC4"/>
-                            <circle cx="40" cy="40" r="5" fill="#4ECDC4"/>
+                            <circle cx="10" cy="10" r="5" fill="#26A65B"/>
+                            <circle cx="10" cy="40" r="5" fill="#26A65B"/>
+                            <circle cx="40" cy="10" r="5" fill="#26A65B"/>
+                            <circle cx="40" cy="40" r="5" fill="#26A65B"/>
                         </symbol>
 
                         <symbol id="tile5">
                             <rect width="50" height="50" fill="#fff" stroke="#ABB7B7"/>
-                            <circle cx="10" cy="10" r="5" fill="#4ECDC4"/>
-                            <circle cx="10" cy="40" r="5" fill="#4ECDC4"/>
-                            <circle cx="25" cy="25" r="5" fill="#4ECDC4"/>
-                            <circle cx="40" cy="10" r="5" fill="#4ECDC4"/>
-                            <circle cx="40" cy="40" r="5" fill="#4ECDC4"/>
+                            <circle cx="10" cy="10" r="5" fill="#26A65B"/>
+                            <circle cx="10" cy="40" r="5" fill="#26A65B"/>
+                            <circle cx="25" cy="25" r="5" fill="#26A65B"/>
+                            <circle cx="40" cy="10" r="5" fill="#26A65B"/>
+                            <circle cx="40" cy="40" r="5" fill="#26A65B"/>
                         </symbol>
 
                         <symbol id="tile6">
                             <rect width="50" height="50" fill="#fff" stroke="#ABB7B7"/>
-                            <circle cx="10" cy="10" r="5" fill="#4ECDC4"/>
-                            <circle cx="10" cy="25" r="5" fill="#4ECDC4"/>
-                            <circle cx="10" cy="40" r="5" fill="#4ECDC4"/>
-                            <circle cx="40" cy="10" r="5" fill="#4ECDC4"/>
-                            <circle cx="40" cy="25" r="5" fill="#4ECDC4"/>
-                            <circle cx="40" cy="40" r="5" fill="#4ECDC4"/>
+                            <circle cx="10" cy="10" r="5" fill="#26A65B"/>
+                            <circle cx="10" cy="25" r="5" fill="#26A65B"/>
+                            <circle cx="10" cy="40" r="5" fill="#26A65B"/>
+                            <circle cx="40" cy="10" r="5" fill="#26A65B"/>
+                            <circle cx="40" cy="25" r="5" fill="#26A65B"/>
+                            <circle cx="40" cy="40" r="5" fill="#26A65B"/>
                         </symbol>
 
-                        <g id="myDomino" transform="translate(100, 60)">
+                        <g id="myDomino" transform="translate(75, 50)">
                             <rect width="50" height="100" style="fill:rgb(255,255,255);stroke:#95A5A6;stroke-width:1"  />
                             <use id="topTile" xlink:href="#tile1"/>
                             <use id="bottomTile" xlink:href="#tile1" x="0" y="50"/>
                             <line x1="0" y1="50" x2="50" y2="50" style="stroke:#95A5A6;stroke-width:1" />
                         </g>
                     </svg>
-
+                    </div>
+                    <div class="w3-row w3-center">
+                        <div class="w3-bar" role="group">
+                            <div class="w3-bar-item">
+                                <button type="button" class="w3-button w3-green w3-circle" onclick="rotateBack()">
+                                    <i class="fa fa-undo" aria-hidden="false"></i>
+                                </button>
+                                <button type="button" class="w3-button w3-green" onclick="toggleDominoTilesSelector()">
+                                    New Domino
+                                </button>
+                                <button type="button" class="w3-button w3-green w3-circle" onclick="rotateForward()">
+                                    <i class="fa fa-repeat" aria-hidden="false"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w3-row">
+                        <div class="w3-bar">
+                            <div class="w3-bar-item">
+                                <input id="dominoScaleInput" onchange="scaleDomino()" type="range" class="form-control"
+                                       min="1" max="1.5" step="0.01" value="1" >
+                                <small>Scale domino</small>
+                                <input id="dominoAminationInput" onchange="changeAnimationSpeed()" type="range" class="form-control"
+                                       min="0.3" max="2" step="0.1" value="0.3">
+                                <small>Animation Speed</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-9" id="dominoTilesSelector" hidden="true">
+                <div class="w3-twothird w3-padding-24" id="dominoTilesSelector" hidden="true">
                     <div id="topTileSelector"></div>
                     <div id="bottomTileSelector"></div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input id="dominoScaleInput" onchange="scaleDomino()" type="range" class="form-control"
-                               min="1" max="1.5" step="0.01" value="1" >
-                        <small>Scale domino</small>
-                    </div>
-                    <div class="form-group">
-                        <input id="dominoAminationInput" onchange="changeAnimationSpeed()" type="range" class="form-control"
-                               min="0.3" max="2" step="0.1" value="0.3">
-                        <small>Animation Speed</small>
-                    </div>
                 </div>
             </div>
         </div>
